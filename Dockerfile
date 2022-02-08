@@ -2,13 +2,10 @@ FROM ubuntu:latest
 RUN apt update -yqq
 RUN apt install -yqq wget
 
-RUN wget -O hysteria https://cdn.jsdelivr.net/gh/none-blue/hysteria-amd64@main/hysteria
-RUN wget -O xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
+RUN wget -Oq hysteria https://cdn.jsdelivr.net/gh/none-blue/hysteria-amd64@main/hysteria
+RUN wget -Oq xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
 RUN chmod +x ./hysteria
 RUN chmod +x ./xray
-
-RUN ./hysteria -V
-RUN ./xray version
 
 RUN mkdir -p /etc/hysteria
 RUN ./xray tls cert --ca \
@@ -19,6 +16,6 @@ RUN ./xray tls cert --ca \
 --file=/etc/hysteria/ \
 --json=false
 
-RUN wget -O /etc/hysteria/config.json https://cdn.jsdelivr.net/gh/mainians/hk_hy@main/config.json
+RUN wget -Oq /etc/hysteria/config.json https://cdn.jsdelivr.net/gh/mainians/hk_hy@main/config.json
 
-CMD nohup ./hysteria -c /etc/hysteria/config.json server >/dev/null 2>&1 &
+CMD [ "nohup", "./hysteria", "-c", "/etc/hysteria/config.json", "server",">/dev/null","2>&1","&" ]
