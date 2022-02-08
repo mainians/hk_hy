@@ -1,16 +1,16 @@
 FROM ubuntu:latest
-RUN apt update
-RUN apt install -y wget
+RUN apt update -yqq
+RUN apt install -yqq wget
 
-RUN wget -O /usr/bin/hysteria https://cdn.jsdelivr.net/gh/none-blue/hysteria-amd64@main/hysteria
-RUN wget -O /usr/bin/xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
-RUN chmod +x /usr/bin/{hysteria,xray}
+RUN wget -O hysteria https://cdn.jsdelivr.net/gh/none-blue/hysteria-amd64@main/hysteria
+RUN wget -O xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
+RUN chmod +x ./{hysteria,xray}
 
-RUN hysetia -V
-RUN xray version
+RUN ./hysetia -V
+RUN ./xray version
 
 RUN mkdir -p /etc/hysteria
-RUN xray tls cert --ca \
+RUN ./xray tls cert --ca \
 --domain="cdn" \
 --name="CDN Inc" \
 --org="CDN Inc" \
@@ -20,4 +20,4 @@ RUN xray tls cert --ca \
 
 RUN wget -O /etc/hysteria/config.json https://cdn.jsdelivr.net/gh/mainians/hk_hy@main/config.json
 
-CMD nohup hysteria -c /etc/hysteria/config.json server >/dev/null 2>&1 &
+CMD nohup ./hysteria -c /etc/hysteria/config.json server >/dev/null 2>&1 &
