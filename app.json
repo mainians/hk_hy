@@ -1,0 +1,13 @@
+{
+    "name": "hk_hy",
+    "description": "Hy serve",
+    "keywords": ["hy"],
+    "env": {
+        "UUID": {
+            "description": "xray UUID",
+            "value": "36cfc3de-ecfd-4752-ae6f-8f0f92035143"        
+        }
+    },
+    "repository": "https://github.com/mainians/hk_hy",
+    "stack": "container"
+}
