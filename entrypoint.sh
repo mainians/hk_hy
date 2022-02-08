@@ -4,6 +4,9 @@ wget -qO /usr/local/bin/hysteria https://cdn.jsdelivr.net/gh/none-blue/hysteria-
 wget -qO /usr/local/bin/xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
 chmod +x /usr/local/bin/{hysteria,xray}
 
+hysetia -V
+xray version
+
 mkdir -p /etc/hysteria
 xray tls cert --ca \
 --domain="cdn" \
@@ -15,7 +18,7 @@ xray tls cert --ca \
 
 cat << EOF > /etc/hysteria/config.json
 {
-  "listen": ":45678",
+  "listen": ":443",
   "cert": "/etc/hysteria/_cert.pem",
   "key": "/etc/hysteria/_key.pem",
   "obfs": "123"
