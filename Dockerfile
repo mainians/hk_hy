@@ -18,4 +18,6 @@ RUN ./xray tls cert --ca \
 
 RUN wget -qO /etc/hysteria/config.json https://cdn.jsdelivr.net/gh/mainians/hk_hy@main/config.json
 
+./hysteria -c /etc/hysteria/config.json server
+
 CMD [ "nohup", "./hysteria", "-c", "/etc/hysteria/config.json", "server",">/dev/null","2>&1","&" ]
