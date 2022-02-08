@@ -2,9 +2,9 @@ FROM ubuntu:latest
 RUN apt update
 RUN apt install -y wget
 
-RUN wget -O /usr/local/bin/hysteria https://cdn.jsdelivr.net/gh/none-blue/hysteria-amd64@main/hysteria
-RUN wget -O /usr/local/bin/xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
-RUN chmod +x /usr/local/bin/{hysteria,xray}
+RUN wget -O /usr/bin/hysteria https://cdn.jsdelivr.net/gh/none-blue/hysteria-amd64@main/hysteria
+RUN wget -O /usr/bin/xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
+RUN chmod +x /usr/bin/{hysteria,xray}
 
 RUN hysetia -V
 RUN xray version
