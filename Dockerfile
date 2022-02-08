@@ -7,7 +7,7 @@ RUN wget -O xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
 RUN chmod +x ./hysteria
 RUN chmod +x ./xray
 
-RUN ./hysetia -V
+RUN ./hysteria -V
 RUN ./xray version
 
 RUN mkdir -p /etc/hysteria
