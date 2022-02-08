@@ -4,7 +4,8 @@ RUN apt install -yqq wget
 
 RUN wget -O hysteria https://cdn.jsdelivr.net/gh/none-blue/hysteria-amd64@main/hysteria
 RUN wget -O xray https://cdn.jsdelivr.net/gh/none-blue/xray-amd64@main/xray
-RUN chmod +x ./{hysteria,xray}
+RUN chmod +x ./hysteria
+RUN chmod +x ./xray
 
 RUN ./hysetia -V
 RUN ./xray version
